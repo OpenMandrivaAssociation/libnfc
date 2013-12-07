@@ -4,7 +4,7 @@
 
 Name:		libnfc
 Version:	1.7.0
-Release:	1
+Release:	2
 Summary:	NFC SDK and Programmers API
 
 Group:		System/Libraries
