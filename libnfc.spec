@@ -3,7 +3,7 @@
 %define devname %mklibname -d nfc
 
 Name:		libnfc
-Version:	1.7.1
+Version:	1.8.0
 Release:	1
 Summary:	NFC SDK and Programmers API
 
@@ -62,7 +62,7 @@ of libnfc.
 
 # install udev rule
 mkdir -p %{buildroot}%{_sysconfdir}/udev/rules.d/
-install -p -m 0644 contrib/udev/42-pn53x.rules %{buildroot}%{_sysconfdir}/udev/rules.d/
+install -p -m 0644 contrib/udev/*-pn53x.rules %{buildroot}%{_sysconfdir}/udev/rules.d/
 
 # fix typo in sample config file (reported upstream - issue 247)
 sed -i 's/allow_intrusive_autoscan/allow_intrusive_scan/g' libnfc.conf.sample
@@ -74,9 +74,9 @@ install -p -m 0644 libnfc.conf.sample %{buildroot}%{_sysconfdir}/nfc/libnfc.conf
 %files
 %dir %{_sysconfdir}/nfc
 %dir %{_sysconfdir}/nfc/devices.d
-%config(noreplace) %{_sysconfdir}/udev/rules.d/42-pn53x.rules
+%config(noreplace) %{_sysconfdir}/udev/rules.d/*-pn53x.rules
 %config(noreplace) %{_sysconfdir}/nfc/libnfc.conf
-%doc COPYING README AUTHORS ChangeLog
+%doc COPYING AUTHORS ChangeLog
 
 %files -n %{libname}
 %{_libdir}/*.so.*
@@ -85,6 +85,7 @@ install -p -m 0644 libnfc.conf.sample %{buildroot}%{_sysconfdir}/nfc/libnfc.conf
 %{_libdir}/*.so
 %{_includedir}/nfc/
 %{_libdir}/pkgconfig/*.pc
+%{_libdir}/cmake/%{name}/*.cmake
 
 %files examples
 %{_bindir}/*
