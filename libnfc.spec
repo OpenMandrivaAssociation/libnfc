@@ -4,13 +4,14 @@
 
 Name:		libnfc
 Version:	1.8.0
-Release:	2
+Release:	3
 Summary:	NFC SDK and Programmers API
 
 Group:		System/Libraries
 License:	LGPLv3+
 URL:		http://www.libnfc.org/
 Source0:	https://github.com/nfc-tools/libnfc/archive/%{name}-%{version}.tar.gz
+Patch0:		27e26d8d1595cd83d9cb799fa85117593dc94783.patch
 
 BuildRequires:	pkgconfig(libpcsclite)
 BuildRequires:	pkgconfig(libusb)
@@ -51,7 +52,7 @@ The libnfc-examples package contains examples demonstrating the functionality
 of libnfc.
 
 %prep
-%autosetup -n %{name}-%{name}-%{version}
+%autosetup -p 1 -n %{name}-%{name}-%{version}
 
 %build
 %cmake
