@@ -9,7 +9,7 @@ Summary:	NFC SDK and Programmers API
 
 Group:		System/Libraries
 License:	LGPLv3+
-URL:		http://www.libnfc.org/
+URL:		https://www.libnfc.org/
 Source0:	https://github.com/nfc-tools/libnfc/archive/%{name}-%{version}.tar.gz
 Patch0:		27e26d8d1595cd83d9cb799fa85117593dc94783.patch
 
